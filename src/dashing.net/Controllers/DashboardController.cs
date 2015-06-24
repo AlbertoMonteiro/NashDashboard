@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
+using dashing.net.common;
 
 namespace dashing.net.Controllers
 {
@@ -17,6 +18,11 @@ namespace dashing.net.Controllers
         public ActionResult Sample()
         {
             return View();
+        }
+        public ActionResult ListJobs()
+        {
+            var jobs = string.Join(", ",Jobs.Get().Select(j => j.GetType().Name));
+            return Content(jobs);
         }
     }
 }
