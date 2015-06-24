@@ -53,7 +53,10 @@ namespace dashing.net.Controllers
 
         private void WriteToStream(Stream outputStream, HttpContent headers, TransportContext context)
         {
+            var updatedAt = TimeHelper.ElapsedTimeSinceEpoch();
             var streamWriter = new StreamWriter(outputStream);
+            streamWriter.WriteLine("data: {{\"id\":\"teste\",\"updatedAt\" : \"{0}\" }}", updatedAt);
+            streamWriter.Flush();
             _streamWriter.Enqueue(streamWriter);
         }
 

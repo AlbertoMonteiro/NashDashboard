@@ -34,7 +34,7 @@ namespace dashing.net.jobs
 
             _lastX = _points.Count - 1;
 
-            Timer = new Lazy<Timer>(() => new Timer(SendMessage, null, TimeSpan.FromSeconds(20), TimeSpan.FromSeconds(20)));
+            Timer = new Lazy<Timer>(() => new Timer(SendMessage, null, TimeSpan.Zero, TimeSpan.FromSeconds(2)));
         }
 
         protected void SendMessage(object message)
